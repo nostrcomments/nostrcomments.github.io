@@ -1,13 +1,16 @@
-# briskness-byte.github.io
+# nostrcomments.github.io
 
-The landing page for [NostrComments](https://github.com/briskness-byte/NostrComments).
+The website for [NostrComments](https://github.com/briskness-byte/NostrComments): the landing page,
+the thread reader and the embed for site owners.
 
-**This has to be a user site** — a repository named exactly `briskness-byte.github.io` — and not a
-project page under the NostrComments repo. A project page lives at
-`briskness-byte.github.io/NostrComments/`, which leaves the host root empty, and every favicon
-lookup on the web uses the hostname alone. awesome-nostr builds its icons from
-`https://<hostname>/favicon.ico`, so a project page would stay iconless. This way the same repo
-answers both.
+**This is an organisation site** — the repository `nostrcomments.github.io` in the `nostrcomments`
+organisation — so it is served from the root of its own hostname. Every favicon lookup on the web
+uses the hostname alone (awesome-nostr builds its icons from `https://<hostname>/favicon.ico`), which
+a project page under another site would not have.
+
+It moved here from `briskness-byte.github.io` in November 2026. That old site stays up: its pages
+forward here, with the address and query intact so old "Read the thread" links land on the same
+thread, and its `embed/frame.html` keeps serving the box for sites that embedded it from there.
 
 Hand-written files, no build step, no dependencies — the same claim the extension makes about
 itself, so it had better be true here too.
@@ -22,10 +25,10 @@ itself, so it had better be true here too.
 
     git init && git add -A && git commit -m "Landing page"
     git branch -M main
-    git remote add origin git@github-brisknessbyte:briskness-byte/briskness-byte.github.io.git
+    git remote add origin git@github-brisknessbyte:nostrcomments/nostrcomments.github.io.git
     git push -u origin main
 
-Then Settings → Pages → Source: `main` / root. It is live at https://briskness-byte.github.io/
+Then Settings → Pages → Source: `main` / root. It is live at https://nostrcomments.github.io/
 within a minute or two.
 
 ## The thread reader

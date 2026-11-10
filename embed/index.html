@@ -11,7 +11,7 @@
   snippet exactly as offered below — tests/run.mjs checks that the copy shown, the copy that runs
   and the hash in this page's policy and in the instructions are all the same.
 -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-i6TN3gFtTYCxpEasTVVhwWchAHlJrNO83H6Aw/7Hjpg='; style-src 'self'; img-src 'self'; frame-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-LfnHEeqEcktaKDJwmO3HOFG4S6oQY88jjOA/P6ZtYx4='; style-src 'self'; img-src 'self'; frame-src 'self'; base-uri 'none'; form-action 'none'">
 <link rel="stylesheet" href="page.css">
 </head>
 <body>
@@ -38,7 +38,7 @@
   <p>Nothing loads until a reader presses <em>Show comments from Nostr</em>. Until then the snippet is a button on your page and contacts nobody.</p>
   <p>When a reader presses it, their browser:</p>
   <ol>
-    <li>loads the box from <code>briskness-byte.github.io</code>, which is hosted by GitHub. GitHub sees the reader's IP address and that some page shows the box, but not which page: the address is passed after the <code>#</code> in the box's link, and browsers never send that part to a server.</li>
+    <li>loads the box from <code>nostrcomments.github.io</code>, which is hosted by GitHub. GitHub sees the reader's IP address and that some page shows the box, but not which page: the address is passed after the <code>#</code> in the box's link, and browsers never send that part to a server.</li>
     <li>connects to six public Nostr relays — <code>nos.lol</code>, <code>relay.damus.io</code>, <code>relay.primal.net</code>, <code>nostr.oxtr.dev</code>, <code>nostr.mom</code> and <code>relay.nostr.net</code>. Each of them sees the reader's IP address and the address of your page, as any server a browser connects to would.</li>
   </ol>
   <p>There are no cookies, no analytics and no tracking of any kind, and nothing is sent anywhere else. No pictures or avatars are loaded. The box cannot see your page, and your page cannot see into the box.</p>
@@ -53,7 +53,7 @@
 <pre id="snippet">&lt;div data-nostrcomments&gt;&lt;/div&gt;
 &lt;script&gt;
 (function (box) {
-  // NostrComments comment box: https://briskness-byte.github.io/embed/
+  // NostrComments comment box: https://nostrcomments.github.io/embed/
   // Until the button is pressed, nothing is loaded and no server is contacted.
   var button = document.createElement('button');
   button.type = 'button';
@@ -65,7 +65,7 @@
     if (canonical &amp;&amp; canonical.getAttribute('href')) params.set('alt', canonical.getAttribute('href'));
     if (box.getAttribute('data-theme')) params.set('theme', box.getAttribute('data-theme'));
     var frame = document.createElement('iframe');
-    frame.src = 'https://briskness-byte.github.io/embed/frame.html#' + params;
+    frame.src = 'https://nostrcomments.github.io/embed/frame.html#' + params;
     frame.title = 'Comments from Nostr';
     frame.setAttribute('sandbox', 'allow-scripts allow-popups allow-popups-to-escape-sandbox');
     frame.setAttribute('referrerpolicy', 'no-referrer');
@@ -84,7 +84,7 @@
     <li>The box finds the page's address the same way the extension does: the address in the browser, plus the page's canonical link if it has one. Tracking parameters such as <code>utm_source</code> are left out, so every reader lands in the same thread as people using the extension.</li>
     <li>To show the thread of a particular address instead, add it to the first line: <code>&lt;div data-nostrcomments data-url="https://example.com/article"&gt;&lt;/div&gt;</code></li>
     <li>The box is light or dark following the reader's system. To fix it, add <code>data-theme="light"</code> or <code>data-theme="dark"</code> to the same line.</li>
-    <li>If your site sends a Content-Security-Policy, allow the snippet and the box: add <code class="hash">'sha256-i6TN3gFtTYCxpEasTVVhwWchAHlJrNO83H6Aw/7Hjpg='</code> to <code>script-src</code>, and <code>https://briskness-byte.github.io</code> to <code>frame-src</code>. The hash only matches the snippet exactly as above.</li>
+    <li>If your site sends a Content-Security-Policy, allow the snippet and the box: add <code class="hash">'sha256-LfnHEeqEcktaKDJwmO3HOFG4S6oQY88jjOA/P6ZtYx4='</code> to <code>script-src</code>, and <code>https://nostrcomments.github.io</code> to <code>frame-src</code>. The hash only matches the snippet exactly as above.</li>
     <li>Some site builders strip scripts out of posts. Put the snippet in the article template instead.</li>
     <li>The box shows up to 50 comments. A link at the bottom opens the full thread.</li>
   </ul>
@@ -93,10 +93,10 @@
 <section>
   <h2>Try it</h2>
   <p>This is the snippet above, showing the thread of this site's front page.</p>
-<div data-nostrcomments data-url="https://briskness-byte.github.io/"></div>
+<div data-nostrcomments data-url="https://nostrcomments.github.io/"></div>
 <script>
 (function (box) {
-  // NostrComments comment box: https://briskness-byte.github.io/embed/
+  // NostrComments comment box: https://nostrcomments.github.io/embed/
   // Until the button is pressed, nothing is loaded and no server is contacted.
   var button = document.createElement('button');
   button.type = 'button';
@@ -108,7 +108,7 @@
     if (canonical && canonical.getAttribute('href')) params.set('alt', canonical.getAttribute('href'));
     if (box.getAttribute('data-theme')) params.set('theme', box.getAttribute('data-theme'));
     var frame = document.createElement('iframe');
-    frame.src = 'https://briskness-byte.github.io/embed/frame.html#' + params;
+    frame.src = 'https://nostrcomments.github.io/embed/frame.html#' + params;
     frame.title = 'Comments from Nostr';
     frame.setAttribute('sandbox', 'allow-scripts allow-popups allow-popups-to-escape-sandbox');
     frame.setAttribute('referrerpolicy', 'no-referrer');
@@ -125,7 +125,7 @@
 
 <section>
   <h2>You can check all of this</h2>
-  <p>The box is a static page with no server behind it. Every comment, vote and name is shown only after its signature has been checked in the reader's browser, and the reading rules are copied from the extension, with a check that fails when the two drift apart. The source is <a href="https://github.com/briskness-byte/briskness-byte.github.io">here</a>, and the extension's is <a href="https://github.com/briskness-byte/NostrComments">here</a>.</p>
+  <p>The box is a static page with no server behind it. Every comment, vote and name is shown only after its signature has been checked in the reader's browser, and the reading rules are copied from the extension, with a check that fails when the two drift apart. The source is <a href="https://github.com/briskness-byte/nostrcomments.github.io">here</a>, and the extension's is <a href="https://github.com/briskness-byte/NostrComments">here</a>.</p>
 </section>
 
 <footer>

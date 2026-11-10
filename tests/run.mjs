@@ -239,7 +239,7 @@ function runSnippet({ href = 'https://blog.example/post?utm_source=x', attrs = {
     const frame = box.children[0];
     ok(frame && frame.tag === 'iframe' && box.children.length === 1, 'after the click: the button is replaced by the frame');
     const [base, frag] = (frame.src || '').split('#');
-    ok(base === 'https://briskness-byte.github.io/embed/frame.html', 'the frame is this site\'s, with no query string for the server to see');
+    ok(base === 'https://nostrcomments.github.io/embed/frame.html', 'the frame is this site\'s, with no query string for the server to see');
     const p = new URLSearchParams(frag);
     ok(p.get('url') === 'https://blog.example/post?utm_source=x' && p.get('alt') === '/canonical-post' && p.get('theme') === 'dark',
        'the page address, canonical link and theme travel in the fragment');
